@@ -15,7 +15,7 @@ const App: React.FC = () => {
     const [filterText, setFilterText] = useState('');
 
     useEffect(() => {
-        // In a real application, you would fetch this data from an API
+        // In a real application, you would fetch this data from an API, also this is just mock data.
         const mockData: Property[] = [
             { id: 1, name: "Luxury Suite", description: "Spacious suite with a beautiful view" },
             { id: 2, name: "Standard Room", description: "Comfortable room for budget travelers" },
@@ -27,6 +27,7 @@ const App: React.FC = () => {
         setFilteredProperties(mockData);
     }, []);
 
+    //Handle filtering side effects here.
     useEffect(() => {
         const filtered = properties.filter(
             (property) =>
@@ -36,6 +37,7 @@ const App: React.FC = () => {
         setFilteredProperties(filtered);
     }, [filterText, properties]);
 
+    //I am using tailwind for styling as a preference but also for faster prototyping.
     return (
         <div className="min-h-screen bg-gray-100">
             <div className="container mx-auto p-6">

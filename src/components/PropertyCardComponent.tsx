@@ -9,7 +9,7 @@ interface Property {
 interface PropertyCardProps {
     property: Property;
 }
-
+//Specific detail for each hotel room, more interactivity can be added here.
 const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
     return (
         <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">

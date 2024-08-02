@@ -4,7 +4,7 @@ interface FilterInputProps {
     filterText: string;
     setFilterText: (text: string) => void;
 }
-
+//simple filtering functionality.
 const FilterInput: React.FC<FilterInputProps> = ({ filterText, setFilterText }) => {
     return (
         <div className="mb-8">
