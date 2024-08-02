@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import FilterInput from "./components/FilterInputComponent.tsx";
 import PropertyList from "./components/PropertyListComponent.tsx";
-
-
-interface Property {
-    id: number;
-    name: string;
-    description: string;
-}
+import propertyData from './propertyData.json';
+import Property from "./types/types.ts";
 
 const App: React.FC = () => {
     const [properties, setProperties] = useState<Property[]>([]);
@@ -15,16 +10,8 @@ const App: React.FC = () => {
     const [filterText, setFilterText] = useState('');
 
     useEffect(() => {
-        // In a real application, you would fetch this data from an API, also this is just mock data.
-        const mockData: Property[] = [
-            { id: 1, name: "Luxury Suite", description: "Spacious suite with a beautiful view" },
-            { id: 2, name: "Standard Room", description: "Comfortable room for budget travelers" },
-            { id: 3, name: "Deluxe Room", description: "Elegant room with modern amenities" },
-            { id: 4, name: "Family Room", description: "Large room suitable for families" },
-        ];
-
-        setProperties(mockData);
-        setFilteredProperties(mockData);
+        setProperties(propertyData);
+        setFilteredProperties(propertyData);
     }, []);
 
     //Handle filtering side effects here.
@@ -32,7 +19,8 @@ const App: React.FC = () => {
         const filtered = properties.filter(
             (property) =>
                 property.name.toLowerCase().includes(filterText.toLowerCase()) ||
-                property.description.toLowerCase().includes(filterText.toLowerCase())
+                property.description.toLowerCase().includes(filterText.toLowerCase()) ||
+                property.code.toLowerCase().includes(filterText.toLowerCase())
         );
         setFilteredProperties(filtered);
     }, [filterText, properties]);

@@ -1,11 +1,6 @@
 import React from 'react';
 import PropertyCard from "./PropertyCardComponent.tsx";
-
-interface Property {
-    id: number;
-    name: string;
-    description: string;
-}
+import Property from "../types/types.ts";
 
 interface PropertyListProps {
     properties: Property[];
