@@ -14,7 +14,7 @@ const App: React.FC = () => {
         setFilteredProperties(propertyData);
     }, []);
 
-    //Handle filtering side effects here.
+    //Handle filtering side effects here. you can use name, description or code for searching.
     useEffect(() => {
         const filtered = properties.filter(
             (property) =>
